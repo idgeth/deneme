@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Scientific Calculator</title>
+    <style>
+        body {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>Scientific Calculator</h1>
+    <input type="text" id="result" readonly>
+    <br>
+    <button onclick="clearResult()">Clear</button>
+    <br>
+    <table>
+        <tr>
+            <td><button onclick="appendToResult('7')">7</button></td>
+            <td><button onclick="appendToResult('8')">8</button></td>
+            <td><button onclick="appendToResult('9')">9</button></td>
+            <td><button onclick="appendToResult('/')">/</button></td>
+        </tr>
+        <tr>
+            <td><button onclick="appendToResult('4')">4</button></td>
+            <td><button onclick="appendToResult('5')">5</button></td>
+            <td><button onclick="appendToResult('6')">6</button></td>
+            <td><button onclick="appendToResult('*')">*</button></td>
+        </tr>
+        <tr>
+            <td><button onclick="appendToResult('1')">1</button></td>
+            <td><button onclick="appendToResult('2')">2</button></td>
+            <td><button onclick="appendToResult('3')">3</button></td>
+            <td><button onclick="appendToResult('-')">-</button></td>
+        </tr>
+        <tr>
+            <td><button onclick="appendToResult('0')">0</button></td>
+            <td><button onclick="appendToResult('.')">.</button></td>
+            <td><button onclick="calculateResult()">=</button></td>
+            <td><button onclick="appendToResult('+')">+</button></td>
+        </tr>
+    </table>
+    <script>
+        function appendToResult(value) {
+            document.getElementById("result").value += value;
+        }
+
+        function clearResult() {
+            document.getElementById("result").value = "";
+        }
+
+        function calculateResult() {
+            let expression = document.getElementById("result").value;
+            let result = eval(expression);
+            document.getElementById("result").value = result;
+        }
+    </script>
+</body>
+</html>
